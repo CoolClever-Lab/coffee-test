@@ -58,7 +58,7 @@ export async function amountCounter(req, res, next) {
       };
       return obj;
     });
-    
+
     let amount = 0;
 
     if (amount != 0) {
@@ -73,7 +73,7 @@ export async function amountCounter(req, res, next) {
       )`;
         result = await execute(textsql);
       }
-      res.status(200).json('доступно');
+      res.status(200).json("доступно");
     } else {
       throw new Error("ноль");
     }
@@ -102,3 +102,20 @@ export async function amountCounter(req, res, next) {
 // insert ([card_id], [amount], [dt])
 //     values ([card_id], [amount], [dt]);
 // `
+
+
+//  Использовать node-fetch таким способом
+// import fetch from "node-fetch";
+// export async function myFunc(req, res) {
+//   try {
+//     const response = await fetch(
+//       "https://jsonplaceholder.typicode.com/todos",
+//       {}
+//     );
+//     const datas = await response.json();
+
+//     res.json(datas)
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
