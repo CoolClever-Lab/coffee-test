@@ -1,0 +1,21 @@
+{
+  "name": "cofe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "jsonschema": "^1.4.0",
+    "mssql": "^8.0.2",
+    "nodemon": "^2.0.15"
+  }
+}
