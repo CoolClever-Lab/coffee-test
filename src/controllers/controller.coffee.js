@@ -39,7 +39,7 @@ export async function coffee(req, res) {
   }
 }
 
-export async function amountCounter(req, res, next) {
+export async function amountCounter(req, res) {
   try {
     let textsql;
     let result;
