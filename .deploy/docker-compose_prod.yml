@@ -2,7 +2,7 @@ version: '3.7'
 services:
   termo:
     restart: always
-    image: "ghcr.io/coolclever-lab/termo:${GIT_TAG}"
+    image: "ghcr.io/coolclever-lab/coffee-test:${GIT_TAG}"
     environment:
           - PORT=10038
           - DB_USER=sa

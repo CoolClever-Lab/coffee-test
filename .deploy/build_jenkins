@@ -52,7 +52,6 @@ pipeline {
                 cleanWs deleteDirs: true
             }
         }
-    }
         post {
         success {
             echo " ============== Job success =================="
