@@ -34,9 +34,9 @@ pipeline {
             steps {            
                 echo " ============== Deploy Prod_zone_KELVIN_SERV =================="
                 sh 'git fetch'
-                sh 'ssh root@$KELVIN_SERV "docker pull ghcr.io/coolclever-lab/${GIT_PROJECT}:$GIT_TAG"'
-                sh 'ssh root@$KELVIN_SERV \'docker-compose --env /root/services/${GIT_PROJECT}/.env -f /root/services/${GIT_PROJECT}/docker-compose_prod.yml down\''
-                sh 'scp .deploy/docker-compose_prod.yml root@$KELVIN_SERV:/root/services/${GIT_PROJECT}/'
+                sh 'ssh root@$KELVIN_SERV "docker pull ghcr.io/coolclever-lab/coffee-test:$GIT_TAG"'
+                sh 'ssh root@$KELVIN_SERV \'docker-compose --env /root/services/coffee-test/.env -f /root/services/coffee-test/docker-compose_prod.yml down\''
+                sh 'scp .deploy/docker-compose_prod.yml root@$KELVIN_SERV:/root/services/coffee-test/'
                 sh 'ssh root@$KELVIN_SERV "echo GIT_TAG=$GIT_TAG > /root/services/coffee-test/.env"'
                 sh 'ssh root@$KELVIN_SERV \'docker-compose --env /root/services/coffee-test/.env -f /root/services/coffee-test/docker-compose_prod.yml up -d\''
                 
