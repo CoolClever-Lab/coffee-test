@@ -1,6 +1,6 @@
 version: '3.7'
 services:
-  termo:
+  coffee-test:
     restart: always
     image: "ghcr.io/coolclever-lab/coffee-test:${GIT_TAG}"
     environment:
@@ -10,4 +10,4 @@ services:
           - DATABASE=coffee
           - DB_SERVER=loldbtest.cd.local
     ports:
-      - "10090:10090"
+      - "10038:10038"
