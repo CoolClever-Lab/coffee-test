@@ -3,13 +3,12 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export default {
-  PORT: 5777,
-  URI: "https://hst-api.wialon.com/wialon/ajax.html",
+  PORT: process.env.PORT,
   DB: {
-    user: "sa",
-    password: "ser09l",
-    database: "coffee",
-    server: "loldbtest.cd.local",
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DATABASE,
+    server: process.env.DB_SERVER,
     parseJSON: true,
     pool: {
       max: 10,

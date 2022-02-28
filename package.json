@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
-  "type": "module",
+  "type":"module",
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon index.js"
@@ -17,6 +17,7 @@
     "jsonschema": "^1.4.0",
     "mssql": "^8.0.2",
     "node-fetch": "^3.2.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "swagger-ui-express": "^4.3.0"
   }
 }
