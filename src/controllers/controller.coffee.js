@@ -24,6 +24,7 @@ export async function coffee(req, res) {
 
       const res = result.find((i) => i.card_id === card_id);
       if (res) {
+        console.log('test');
       } else {
         throw new Error("error");
       }
