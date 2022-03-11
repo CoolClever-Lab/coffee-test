@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  coffee-test:
+    restart: always
+    image: "ghcr.io/coolclever-lab/coffee-test:${GIT_TAG}"
+    environment:
+          - PORT=10038
+          - DB_USER=sa
+          - DB_PASSWORD=ser09l
+          - DATABASE=coffee
+          - DB_SERVER=loldbtest.cd.local
+    ports:
+      - "10038:10038"
