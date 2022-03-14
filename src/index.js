@@ -1,4 +1,4 @@
-import express, { json } from "express";
+import express from "express";
 import swaggerUi from "swagger-ui-express";
 
 import router from "./src/routes/index.route.js";
@@ -9,7 +9,7 @@ const { PORT } = config;
 
 const app = express();
 
-app.use(json());
+app.use(express.json());
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/", router);

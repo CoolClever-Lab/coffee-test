@@ -8,10 +8,16 @@ export async function coffee(req, res) {
     let textsql;
     let result;
     const { product_id, card_id, device_id } = req.body;
+    
+    console.log(req.body)
+
+    
+
     const data = req.body;
     const v = new Validator();
     const validate = v.validate(data, schema);
-
+    // 9625558
+    result = await execute(textsql);
     if (validate.errors.length > 0) {
       throw new Error(validate.errors);
     } else {
@@ -29,7 +35,7 @@ export async function coffee(req, res) {
         throw new Error("error");
       }
     }
-    res.status(200).json({ result: "success" });
+    res.status(200).json({ result: "success", message: "заберите Ваш напиток" });
   } catch (err) {
     res.status(403).json({
       result: err.message,
