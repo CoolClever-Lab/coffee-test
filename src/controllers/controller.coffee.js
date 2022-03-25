@@ -2,16 +2,15 @@ import { Validator } from "jsonschema";
 
 import execute from "../config/db.js";
 import schema from "../config/schema.js";
+// import {LogError, LogCommon} from '../common.js'
 
 export async function coffee(req, res) {
   try {
     let textsql;
     let result;
     const { product_id, card_id, device_id } = req.body;
-    
-    console.log(req.body)
 
-    
+    console.log(req.body);
 
     const data = req.body;
     const v = new Validator();
@@ -30,13 +29,35 @@ export async function coffee(req, res) {
 
       const res = result.find((i) => i.card_id === card_id);
       if (res) {
-        console.log('teste');
       } else {
-        throw new Error("error");
+        throw new Error("номер карты не совпадает с картой в базе");
       }
     }
-    res.status(200).json({ result: "success", message: "заберите Ваш напиток" });
+    const results = "success";
+    const message = "заберите Ваш напиток";
+
+    textsql = `
+      INSERT INTO [coffee].[dbo].[logs]
+      ([request_text]
+      ,[status]
+      ,[answer_text]
+      ,[dt])
+    VALUES
+      ('${JSON.stringify(req.body)}'
+      ,${res.statusCode}
+      ,'${results}'
+      ,GETDATE())`;
+    result = await execute(textsql);
+
+    res.status(200).send({ result: results, message: message });
   } catch (err) {
+    let textsql = `
+    insert into [coffee].[dbo].[errors]
+    ([err],[dt])
+    values ('${JSON.stringify(err.message)}', GETDATE())`;
+
+    await execute(textsql);
+
     res.status(403).json({
       result: err.message,
       error_code: "not_registered",
